@@ -1,0 +1,18 @@
+version: "2.1"
+orbs:
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+  node: circleci/node@5.0.0
+workflows:
+  elastic-beanstalk-workflow:
+    jobs:
+      - node/test
+      - eb/deploy:
+          application-name: xavier3-app
+          environment-name: xavier3-app-dev
+          filters:
+            branches:
+              only:
+                - main
+          label: version-<<pipeline.number>>
+          requires:
+            - node/test
