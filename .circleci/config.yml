@@ -7,8 +7,8 @@ workflows:
     jobs:
       - node/test
       - eb/deploy:
-          application-name: xavier3-app
-          environment-name: xavier3-app-dev
+          application-name: marnade-completeDeploy
+          environment-name: marnade-completeDeploy-dev
           filters:
             branches:
               only:
